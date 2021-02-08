@@ -14,10 +14,10 @@ void parse_arguments(NodeSaveRequest& node_request, int argc, char** argv) {
     options_description desc("Supported Options/Args");
     desc.add_options()
             ("help,h", "Show a help screen")
-            ("master_url,M", value<string>(), "Full Address[incl. port] with trailing \'/\'.")
-            ("hostname,H", value<string>(), "The name to call Host[Just string-based name]")
-            ("ipaddr,i", value<string>(), "The IP Address of Node Server")
-            ("hostport,p", value<string>(), "Node Server's Port");
+            ("master_url,M", value<string>(), "Full Address[incl. port] with trailing \'/\'.\ni.e http://localhost:8080")
+            ("hostname,H", value<string>(), "The name to call Host[Just string-based name], i.e kangdroidnode1")
+            ("ipaddr,i", value<string>(), "The IP Address of Node Server, i.e 127.0.0.1")
+            ("hostport,p", value<string>(), "Node Server's Port, i.e 8080");
 
     store(parse_command_line(argc, argv, desc), vm);
 
