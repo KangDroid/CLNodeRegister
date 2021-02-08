@@ -20,6 +20,7 @@ public:
     string hostName;
     string hostPort;
     string ipAddress;
+    string masterUrl;
 };
 
 
