@@ -13,5 +13,5 @@ find_package(Boost REQUIRED COMPONENTS system program_options)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_TURN_OFF_PLATFORM_STRING")
 
-add_executable(CLNodeSelector src/main.cpp include/NodeSaveRequest.h src/argument_parser.cpp include/argument_parser.h)
+add_executable(CLNodeSelector src/main.cpp include/NodeSaveRequest.h src/argument_parser.cpp include/argument_parser.h src/server_request.cpp include/server_request.h)
 TARGET_LINK_LIBRARIES(CLNodeSelector PRIVATE cpprestsdk::cpprest OpenSSL::SSL Boost::system Boost::program_options OpenSSL::Crypto)

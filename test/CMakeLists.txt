@@ -24,7 +24,7 @@ include_directories(googletest/googletest/include)
 include_directories(googletest/googlemock/include)
 
 #Define your executable
-add_executable(CLNodeRegisterTest src/test_main.cpp ../main/src/argument_parser.cpp)
+add_executable(CLNodeRegisterTest src/test_main.cpp ../main/src/argument_parser.cpp ../main/src/server_request.cpp)
 
 #Link with GoogleTest
 target_link_libraries(CLNodeRegisterTest gtest gtest_main)

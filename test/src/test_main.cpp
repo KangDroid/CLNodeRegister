@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include "NodeSaveRequest.h"
 #include "argument_parser.h"
+#include "server_request.h"
 
 using namespace std;
 
