@@ -27,16 +27,24 @@ void request_server(NodeSaveRequest& node_request) {
     main_post["ipAddress"] = json::value::string(node_request.ipAddress);
 
     request_type.set_body(main_post);
-    string response_value = "";
+    json::value main_response;
 
     try {
-        client_req.request(request_type).then([&response_value](http_response hr) {
-            response_value = hr.extract_string().get();
+        client_req.request(request_type).then([&main_response](http_response hr) {
+            main_response = hr.extract_json().get();
         }).wait();
     } catch (const exception& expn) {
         cerr << "Error: ";
         cerr << expn.what() << endl;
     }
 
-    cout << "Response: " << response_value << endl;
+    string error_message = main_response["errorMessage"].as_string();
+    if (!error_message.empty()) {
+        cerr << "Error: " << error_message << endl;
+    } else {
+        cout << "Successfully registered node!" << endl;
+        cout << "IP: " << main_response["ipAddress"].as_string() << endl;
+        cout << "Port: " << main_response["hostPort"].as_string() << endl;
+        cout << "Registered As: " << main_response["regionName"].as_string() << endl;
+    }
 }
